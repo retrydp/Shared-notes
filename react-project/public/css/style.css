@@ -1,0 +1,319 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.hide {
+  display: none !important;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+  width: 250px;
+}
+.logo {
+  height: 120px;
+}
+.main {
+  display: flex;
+}
+.side {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  padding: 100px 40px;
+  background: linear-gradient(180deg, #f3f3fb 0, #fdfbfd 100%);
+  color: #707c97;
+}
+.side-header {
+  display: flex;
+  background: #fafbff;
+  padding: 28px;
+}
+.wrapper {
+  background: #fff;
+  padding: 28px;
+  color: #707c97;
+}
+.btn {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+  border: none;
+  min-width: 50px;
+  min-height: 50px;
+  background-size: 50%;
+  border-radius: 5px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.03), 0 7px 25px rgba(42, 139, 242, 0.03), 0 5px 25px rgba(42, 139, 242, 0.07);
+  position: relative;
+  font-family: "Krona One", sans-serif;
+  font-weight: 700;
+  transition: padding 0.3s;
+}
+.add {
+  background: url(/images/create.png) center no-repeat;
+  background-size: 25px;
+}
+.view {
+  background: url(/images/view.png) center no-repeat;
+  background-size: 25px;
+}
+.send {
+  background: url(/images/send.png) center no-repeat;
+  background-size: 25px;
+}
+.plus {
+  background: rgba(255, 255, 255, 0.25) url(/images/plus.svg) center no-repeat;
+  background-size: 30px;
+}
+.search {
+  background: rgba(255, 255, 255, 0.25) url(/images/search.png) center no-repeat;
+  background-size: 20px;
+}
+.search-one {
+  background: rgba(255, 255, 255, 0.25) url(/images/search-one.png) center no-repeat;
+  background-size: 25px;
+}
+.add:focus,
+.add:hover,
+.search:focus,
+.search:hover,
+.send:focus,
+.send:hover,
+.view:focus,
+.view:hover,.search-one:focus,
+.search-one:hover {
+  background-position: 20px;
+  padding-left: 60px;
+  padding-right: 40px;
+  color: #707c97;
+  font-size: 15px;
+}
+.add:focus::before,
+.add:hover::before {
+  content: "Добавить заметку";
+}
+.view:focus::before,
+.view:hover::before {
+  content: "Посмотреть заметку";
+}
+.send:focus::before,
+.send:hover::before {
+  content: "Отправить заметку";
+}
+.search:focus::before,
+.search:hover::before {
+  content: "Найти заметку";
+}
+.plus:focus::before,
+.plus:hover::before {
+  content: "Добавить новую заметку";
+  color: #fff;
+}
+.search-one:focus::before,
+.search-one:hover::before {
+  content: "Добавить новую заметку";
+  color: #fff;
+}
+form {
+  width: 100%;
+  align-items: center;
+  display: flex;
+}
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fafbff;
+  padding: 33px;
+  font-family: "Krona One", sans-serif;
+}
+.input {
+  border: none;
+  margin: 0 25px;
+  flex-basis: 30%;
+  padding: 10px;
+}
+.input::placeholder {
+  color: #707c97;
+  font-size: 15px;
+  font-family: "Krona One", sans-serif;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0;
+}
+.items {
+  margin-left: 40px;
+}
+.list {
+  font-size: 20px;
+  display: flex;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 35px;
+  list-style: none;
+  position: relative;
+  padding-left: 10px;
+  cursor: pointer;
+}
+.out {
+  width: 100%;
+  display: flex;
+  background-color: #707c97;
+  align-items: center;
+  padding: 28px;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Krona One", sans-serif;
+  background: linear-gradient(90.54deg, #60a9f6 0, #2a8bf2 100%);
+  box-shadow: 10px 10px 25px rgba(42, 139, 242, 0.1), 15px 15px 35px rgba(42, 139, 242, 0.05), 10px 10px 50px rgba(42, 139, 242, 0.1);
+  border-radius: 0 10px 10px 10px;
+}
+.error {
+  width: 100%;
+  display: flex;
+  background-color: #707c97;
+  align-items: center;
+  margin-left: 28px;
+  padding-left: 28px;
+  background: linear-gradient(90.54deg, #5ea3ec 0, #f38e8e 100%);
+  color: #fff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.finder {
+  width: 100%;
+  display: flex;
+  background-color: #707c97;
+  align-items: center;
+  padding: 28px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 50px;
+  font-family: "Krona One", sans-serif;
+  background: linear-gradient(90.54deg, #f16c6c 0, #74b7ff 100%);
+  box-shadow: 10px 10px 25px rgba(245, 44, 44, 0.1), 15px 15px 35px rgba(42, 139, 242, 0.05), 10px 10px 50px rgba(42, 139, 242, 0.1);
+  border-radius: 0 10px 10px 10px;
+}
+.error::after {
+  content: url(/images/warning.png);
+  width: 100%;
+  position: fixed;
+  left: 50%;
+}
+.out-text {
+  margin-right: 28px;
+}
+.link:focus::before,
+.list:hover::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #2a8bf2;
+  box-shadow: 1px 0 10px rgba(42, 139, 242, 0.45), 0 0 10px rgba(42, 139, 242, 0.55), 4px 0 25px rgba(42, 139, 242, 0.75);
+  border-radius: 3px;
+}
+.link {
+  padding-left: 25px;
+  text-decoration: none;
+  font-family: "Krona One", sans-serif;
+  font-size: 20px;
+  color: #707c97;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+.link:focus,
+.list:hover > .link {
+  color: #88c2ff;
+  letter-spacing: 2px;
+}
+.note-text {
+  margin-left: 28px;
+  margin-right: 28px;
+}
+a {
+  font-family: "Krona One", sans-serif;
+  display: flex;
+  text-decoration: none;
+  padding: 0;
+  color: #707c97;
+  justify-content: center;
+}
+a:hover {
+  color: #88c2ff;
+}
+.loader,
+.loader:after,
+.loader:before {
+  background: #88c2ff;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loader {
+  color: #2769ca;
+  text-indent: -9999em;
+  margin: 88px auto;
+  position: relative;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:after,
+.loader:before {
+  position: absolute;
+  top: 0;
+  content: "";
+}
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  100%,
+  80% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  100%,
+  80% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
