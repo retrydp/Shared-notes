@@ -1,15 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef } from 'react';
 
-import env from "../env.json";
-import Error from "./Error";
-import { request } from "../services/api";
-import Spinner from "./Spinner";
+import env from '../env.json';
+import Error from './Error';
+import { request } from '../services/api';
+import Spinner from './Spinner';
 
 const Create = () => {
-  const [url, setUrl] = useState(""),
+  const [url, setUrl] = useState(''),
     [visibility, setVisibility] = useState({
-      line: "hide",
-      form: "",
+      line: 'hide',
+      form: '',
     }),
     [serverError, setServerError] = useState(false),
     [loading, setLoading] = useState(false),
@@ -27,8 +27,8 @@ const Create = () => {
         if (result) {
           setLoading(false);
           setVisibility({
-            form: "hide",
-            line: "",
+            form: 'hide',
+            line: '',
           });
           setServerError(false);
           setUrl(`${urlF}/${url}`);
@@ -48,14 +48,14 @@ const Create = () => {
   const loadDataFromForm = (event) => {
     event.preventDefault();
     const note = noteInput.current.value.trim();
-    note ? sendData({ note }) : alert("Заполните поля");
+    note ? sendData({ note }) : alert('Заполните поля');
   };
 
   const copyMessage = () => {
     if (trigger) {
       if (navigator.clipboard) {
         navigator.clipboard.writeText(token);
-        message.current.innerHTML = "<b>Токен скопирован в буфер обмена.</b>";
+        message.current.innerHTML = '<b>Токен скопирован в буфер обмена.</b>';
         trigger = !trigger;
       }
     }
@@ -79,7 +79,14 @@ const Create = () => {
           <label htmlFor="note">
             <b> Введите заметку:</b>
           </label>
-          <input name="note" id="note" placeholder="Текст заметки" required className="input" ref={noteInput} />
+          <input
+            name="note"
+            id="note"
+            placeholder="Текст заметки"
+            required
+            className="input"
+            ref={noteInput}
+          />
           <button type="submit" className="btn send" aria-label="create note"></button>
         </form>
         <div className={`out ${line}`} onClick={copyMessage}>
@@ -90,12 +97,11 @@ const Create = () => {
             className={`btn add plus ${line}`}
             onClick={() =>
               setVisibility({
-                form: "",
-                line: "hide",
+                form: '',
+                line: 'hide',
               })
             }
-            aria-label="add note"
-          ></button>
+            aria-label="add note"></button>
         </div>
       </div>
     </div>
