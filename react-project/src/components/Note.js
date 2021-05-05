@@ -1,20 +1,20 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useEffect, useState, useRef } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
-import env from "../env.json";
-import Error from "./Error";
-import { request } from "../services/api";
-import Spinner from "./Spinner";
+import env from '../env.json';
+import Error from './Error';
+import { request } from '../services/api';
+import Spinner from './Spinner';
 
 const Note = () => {
   const { urlF } = env,
     token = useRef(),
     { noteURL } = useParams(),
-    [noteText, setNoteText] = useState(""),
+    [noteText, setNoteText] = useState(''),
     [visibility, setVisibility] = useState({
-      line: "hide",
-      form: "hide",
-      error: "hide",
+      line: 'hide',
+      form: 'hide',
+      error: 'hide',
     }),
     [serverError, setServerError] = useState(false),
     [loading, setLoading] = useState(false);
@@ -29,35 +29,35 @@ const Note = () => {
             setServerError(false);
             setNoteText(note);
             setVisibility({
-              line: "",
-              form: "hide",
-              error: "hide",
+              line: '',
+              form: 'hide',
+              error: 'hide',
             });
           } else if (!result) {
             setLoading(false);
             if (text) {
-              //Note not found
+              // Note not found
               setVisibility({
-                line: "hide",
-                form: "hide",
-                error: "",
+                line: 'hide',
+                form: 'hide',
+                error: '',
               });
             } else {
-              //Failed connect to database
+              // Failed connect to database
               setServerError(error.name);
             }
           }
         })
         .catch((err) => {
-          //Backend error
+          // Backend error
           setLoading(false);
           setServerError(err);
         });
     } else {
       setVisibility({
-        line: "hide",
-        form: "",
-        error: "hide",
+        line: 'hide',
+        form: '',
+        error: 'hide',
       });
     }
   }, [noteURL]);
@@ -65,7 +65,7 @@ const Note = () => {
   const getNote = (event) => {
     event.preventDefault();
     const url = token.current.value.trim();
-    url ? (window.location.href = `${urlF}/${url}`) : alert("Заполните поля");
+    url ? (window.location.href = `${urlF}/${url}`) : alert('Заполните поля');
   };
 
   if (loading) {
@@ -73,7 +73,7 @@ const Note = () => {
   }
 
   if (serverError) {
-    //Server/database error
+    // Server/database error
     return <Error error={serverError} redirect="/note" />;
   }
 
@@ -96,7 +96,15 @@ const Note = () => {
           <label htmlFor="token">
             <b>Введите хеш:</b>
           </label>
-          <input type="text" name="token" id="token" placeholder="Поиск заметки" className="input" required ref={token} />
+          <input
+            type="text"
+            name="token"
+            id="token"
+            placeholder="Поиск заметки"
+            className="input"
+            required
+            ref={token}
+          />
           <button type="submit" className="btn search" aria-label="find note"></button>
         </form>
       </div>
@@ -105,4 +113,3 @@ const Note = () => {
 };
 
 export default Note;
-

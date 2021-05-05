@@ -33,13 +33,13 @@ const Create = () => {
           setServerError(false);
           setUrl(`${urlF}/${url}`);
         } else if (!result) {
-          //Failed connect to database
+          // Failed connect to database
           setServerError(error.name);
           setLoading(false);
         }
       })
       .catch((err) => {
-        //Backend error
+        // Backend error
         setLoading(false);
         setServerError(err);
       });
@@ -66,7 +66,7 @@ const Create = () => {
   }
 
   if (serverError) {
-    //Server/database error
+    // Server/database error
     return <Error error={serverError} redirect="/create" />;
   }
 
